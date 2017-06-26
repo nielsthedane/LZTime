@@ -23,27 +23,28 @@ namespace LZTime
 
 								static void Main(string[] args)
 								{
-												MMC.MMCManage.Initialize("csgo");
+												MMCManage.Initialize("csgo");
 												//Finds Client.dll addres and saves it in the variable
-												m_ClientPointer= MMCManage.GetModuleAdress("client.dll");
+												m_ClientPointer = MMCManage.GetModuleAdress("client.dll");
 
-												
-									while (true)
-									{
 
-												int address = m_ClientPointer + dwLocalPlayer;
-												int localPlayer = MMCManage.ReadMemory<int>(address);
+												while (true)
+												{
 
-										address = localPlayer + m_iCrosshairId;
-										int playerInCross = MMCManage.ReadMemory<int>(address);
-										Console.WriteLine("Player" + playerInCross);
-										if (playerInCross == 2)
-										{
-											MMCManage.WriteMemory<IntPtr>(m_ClientPointer + dwForceAttack ,1);
-											Thread.Sleep(1);
-											MMCManage.WriteMemory<IntPtr>(m_ClientPointer + dwForceAttack, 4);
+																int address = m_ClientPointer + dwLocalPlayer;
+																int localPlayer = MMCManage.ReadMemory<int>(address);
+
+																address = localPlayer + m_iCrosshairId;
+																int playerInCross = MMCManage.ReadMemory<int>(address);
+																Console.WriteLine("Player" + playerInCross);
+																if (playerInCross == 2)
+																{
+																				MMCManage.WriteMemory<IntPtr>(m_ClientPointer + dwForceAttack, 1);
+																				Thread.Sleep(1);
+																				MMCManage.WriteMemory<IntPtr>(m_ClientPointer + dwForceAttack, 4);
+
 																}
-									}
+												}
 								}
 				}
 }

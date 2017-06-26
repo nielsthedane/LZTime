@@ -46,6 +46,8 @@
     <Compile Include="MMC.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threads\GameUpdater.cs" />
+    <Compile Include="Var\Offsets.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
