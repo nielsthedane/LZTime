@@ -17,6 +17,7 @@
 
 								public struct LocalPlayer
 								{
+												public static int localPlayer;
 												public static int m_iBase;
 												public static int m_iTeam;
 												public static int m_iClientState;
